@@ -1,0 +1,39 @@
+
+    # Extensible files (see section 5.3.2 Indexed and Extensible Files). After this step, your project should pass the file growth tests.
+0) replace wait function with while(1)
+0.1) create file system partition
+1) current system has one large extent. Causes fragmentation bc file size N trying to write, but cant even though N blocks available.
+2) Modify on-disc inode structure (index structure with direct, indirect, and doubly indirect blocks)
+3) Files must be made to have initial size (usually 0) and extended with every write
+4) any gap between the previous EOF and the start of the write must be filled with zeros
+5) Either allocate data blocks for zero blocks or only when written
+Another Aproach
+
+1)change inode_disk structure
+2)reimplement other inode methods to reflect the
+3)changes to the inode_disk (etc inode_write_at)
+4)change your system to process relative and
+5)absolute paths correctly
+6)update open and remove system calls to work with
+7)directories
+8)write new system calls
+
+
+    # Subdirectories (see section 5.3.3 Subdirectories). Afterward, your project should pass the directory tests.
+1)Add current working directory to the thread struct
+
+
+
+    # Remaining miscellaneous items.
+
+
+    # Question for TA's
+
+1)Arent we already checking if the pointer is valid in syscall.c?
+"The second method is to check only that a user pointer points below PHYS_BASE,
+then dereference it. An invalid user pointer will cause a "page fault" that
+you can handle by modifying the code for page_fault() in userprog/exception.c"
+
+2) do we need to make a disk before we check anything or does make check do this for us
+
+3)
